@@ -9,47 +9,14 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 18.0.1
-    chart: ghost
-    helm:
-      parameters:
-        - name: 'service.type'
-          value: 'ClusterIP'
-        - name: 'persistence.enabled'
-          value: 'false'
+    repoURL: {{ .Values.spec.repo }}
+    targetRevision: HEAD
+    path: ghost
   destination:
-    server: {{ .Values.spec.destination.server }} 
-    namespace: ghost 
+    server: {{ .Values.spec.destination.server }}
+    namespace: ghost
   syncPolicy:
     automated:
-      selfHeal: true 
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
----
-
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ghost-ingress
-  namespace: ghost
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-stage"
-spec:
-  tls:
-  - hosts:
-    - ghost.512.ch
-    secretName: ghost-tls
-  rules:
-  - host: ghost.512.ch
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service: 
-            name: ghost 
-            port:
-              name: https
