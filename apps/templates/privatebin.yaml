@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: privatebin 
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.spec.repo }}
+    targetRevision: master
+    path: privatebin
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: privatebin
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: privatebin
+  namespace: privatebin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: privatebin
+  template:
+    metadata:
+      labels:
+        app: privatebin
+    spec:
+      #volumes:
+      #- name: privatebin-data
+      #  persistentVolumeClaim:
+      #    claimName: privatebin-data-pvc
+      containers:
+      - name: privatebin
+        image: privatebin/nginx-fpm-alpine 
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TZ 
+          value: Europe/Zurich
+        - name: PHP_TZ
+          value: Europe/Zurich
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+        #volumeMounts:
+        #- mountPath: /srv/data
+        #  name: privatebin-data
+        #  readOnly: False
+
