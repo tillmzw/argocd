@@ -15,7 +15,7 @@ spec:
     helm:
       parameters:
         - name: 'controller.enableTLSPassthrough'
-          value: true
+          value: 'true'
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: nginx-ingress 
