@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+
 spec:
   project: default
   source:
@@ -14,21 +15,3 @@ spec:
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: default
-
----
-
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: hello-ingress-route 
-  namespace: hello 
-spec:
-  entryPoints:
-    - web
-  routes:
-  - match: Host(`hello.{{ .Values.spec.domain }}`)
-    kind: Rule
-    services:
-    - name: hello
-      port: 80
-      #targetPort: 80
