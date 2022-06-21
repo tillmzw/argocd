@@ -12,6 +12,10 @@ spec:
     repoURL: {{ .Values.spec.repo }}
     targetRevision: HEAD
     path: ghost
+    helm:
+      valueFiles:
+      - values.yaml
+
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: ghost
