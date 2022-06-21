@@ -4,5 +4,5 @@ version: 18.0.1
 type: application
 dependencies:
   - name: ghost
-    version: 18.0.1
+    version: 19.0.5
     repository: https://charts.bitnami.com/bitnami
