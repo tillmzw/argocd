@@ -12,6 +12,10 @@ spec:
     repoURL: 'https://helm.nginx.com/stable'
     targetRevision: 0.13.2
     chart: nginx-ingress
+    helm:
+      parameters:
+        - name: 'controller.enableTLSPassthrough'
+          value: true
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: nginx-ingress 
