@@ -1,0 +1,5 @@
+spec:
+  domain: 512.ch
+  repo: https://github.com/tillmzw/argocd-apps.git
+  destination:
+    server: https://kubernetes.default.svc

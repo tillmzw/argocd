@@ -1,0 +1,8 @@
+apiVersion: v2
+name: applications
+description: Applications
+
+type: application
+# increment these for every update; version is semver, appVersion is freetext
+version: 0.0.1
+appVersion: "0.0.1-alpha"
