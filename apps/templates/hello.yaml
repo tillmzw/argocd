@@ -14,4 +14,10 @@ spec:
     path: hello
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: default
+    namespace: hello
+  syncPolicy:
+    automated:
+      selfHeal: true 
+    syncOptions:
+      - CreateNamespace=true
+ 
