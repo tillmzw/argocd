@@ -1,0 +1,4 @@
+vscode:
+  extensions:
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - ryanolsonx.solarized
