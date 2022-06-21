@@ -9,53 +9,14 @@ metadata:
 spec:
   project: default 
   source:
-    repoURL: 'https://charts.jetstack.io'
-    targetRevision: 1.8.0
-    chart: cert-manager
-    helm:
-      valueFiles:
-        - values.yaml
-      parameters:
-        - name: installCRDs
-          value: "true"
+    repoURL: {{ .Values.spec.repo }}
+    targetRevision: HEAD
+    path: cert-manager
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: {{ .Values.spec.destination.server }}
     namespace: cert-manager
   syncPolicy:
     automated:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
-#---
-#
-#apiVersion: cert-manager.io/v1
-# kind: Issuer
-# metadata:
-#   name: letsencrypt-staging
-# spec:
-#   acme:
-#     server: "https://acme-staging-v02.api.letsencrypt.org/directory"
-#     email: "till@meyerzuwestram.net"
-#     privateKeySecretRef:
-#       name: letsencrypt-staging
-#     solvers:
-#     - http01:
-#         ingress:
-#           class: nginx
-#---
-#
-#apiVersion: cert-manager.io/v1
-# kind: Issuer
-# metadata:
-#   name: letsencrypt-prod
-# spec:
-#   acme:
-#     server: "https://acme-v02.api.letsencrypt.org/directory"
-#     email: "till@meyerzuwestram.net"
-#     privateKeySecretRef:
-#       name: letsencrypt-prod
-#     solvers:
-#     - http01:
-#         ingress:
-#           class: nginx
