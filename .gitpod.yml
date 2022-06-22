@@ -1,4 +1,11 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: set kubernetes context
+    command: echo $K8S_CTX | base64 -d > ~/.kube/config
+
 vscode:
   extensions:
     - ms-kubernetes-tools.vscode-kubernetes-tools
-    - ryanolsonx.solarized
+    - vscodevim.vim
