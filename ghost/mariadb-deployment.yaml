@@ -22,6 +22,8 @@ spec:
           value: "yes"
         - name: MARIADB_USER
           value: "ghost"
+        - name: MARIADB_DATABASE
+          value: "ghost"
         - name: MARIADB_PASSWORD
           valueFrom:
             secretKeyRef:
