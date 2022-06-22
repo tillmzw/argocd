@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost
+spec:
+  selector:
+    matchLabels:
+      app: ghost
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ghost
+    spec:
+      containers:
+        - name: ghost
+          image: ghost:5.2.3-alpine
+          ports:
+            - containerPort: 2368
+          env:
+            - name: database__client
+              value: "mysql"
+            - name: database__connection__host
+              value: "mariadb"
+            - name: database__connection__user
+              value: "miniflux"
+            - name: database__connection__password
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-password
+                  key: password
+            - name: database__connection__database
+              value: "ghost"
+#        volumeMounts:
+#        - name: ghost-data
+#          mountPath: /var/lib/ghost/content
+#      volumes:
+#      - name: ghost-data
+#        persistentVolumeClaim:
+#          claimName: ghost
