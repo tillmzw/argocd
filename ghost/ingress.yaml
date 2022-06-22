@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - news.512.ch
+        - ghost.512.ch
       secretName: ghost-tls
   rules:
-    - host: news.512.ch
+    - host: ghost.512.ch
       http:
         paths:
         - pathType: Prefix
