@@ -23,7 +23,10 @@ spec:
             - name: database__connection__host
               value: "mariadb"
             - name: database__connection__user
-              value: "miniflux"
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-password
+                  key: username
             - name: database__connection__password
               valueFrom:
                 secretKeyRef:
