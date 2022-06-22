@@ -19,9 +19,9 @@ spec:
         - containerPort: 3306 
         env:
         - name: MARIADB_RANDOM_ROOT_PASSWORD
-          value: 1
+          value: "yes"
         - name: MARIADB_USER
-          value: ghost
+          value: "ghost"
         - name: MARIADB_PASSWORD
           valueFrom:
             secretKeyRef:
