@@ -23,10 +23,7 @@ spec:
             - name: database__connection__host
               value: "mariadb"
             - name: database__connection__user
-              valueFrom:
-                secretKeyRef:
-                  name: mariadb-password
-                  key: username
+              value: "ghost"
             - name: database__connection__password
               valueFrom:
                 secretKeyRef:
