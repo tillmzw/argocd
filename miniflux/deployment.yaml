@@ -22,11 +22,22 @@ spec:
               value: "8080"
             - name: RUN_MIGRATIONS
               value: "1"
+            - name: "CREATE_ADMIN"
+              value: "1"
             - name: POSTGRES_PASSWORD
-              # kubectl create -n miniflux secret generic postgres --from-literal=password=$(head -c 16 /dev/urandom | base64)
               valueFrom:
                 secretKeyRef:
-                  name: postgres
+                  name: postgres-password
                   key: password
             - name: DATABASE_URL
-              value: "postgres://miniflux:$(POSTGRES_PASSWORD)@postgres/miniflux2?sslmode=disable"
+              value: "postgres://miniflux:$(POSTGRES_PASSWORD)@postgres/miniflux?sslmode=disable"
+            - name: ADMIN_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: miniflux-password
+                  key: username
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: miniflux-password
+                  key: password

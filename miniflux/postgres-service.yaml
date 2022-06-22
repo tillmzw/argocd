@@ -1,37 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: postgres
+  labels:
+    app: postgres
 spec:
+  ports:
+    - port: 5432
   selector:
-    matchLabels:
-      app: postgres
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      containers:
-        - name: postgres
-          image: postgres:12
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 5432
-          env:
-            - name: POSTGRES_DB
-              value: miniflux2
-            - name: POSTGRES_USER
-              value: miniflux
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres
-                  key: password
-          volumeMounts:
-            - mountPath: /var/lib/postgres/data
-              name: data
-      volumes:
-        - name: data
-          persistentVolumeClaim:
-            claimName: postgres
+    app: postgres

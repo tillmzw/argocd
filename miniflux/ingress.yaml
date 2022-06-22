@@ -1,4 +1,3 @@
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,18 +8,17 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-stage"
 spec:
   tls:
-  - hosts:
-    - news2.512.ch
-    secretName: miniflux2-tls 
+    - hosts:
+        - news.512.ch
+      secretName: miniflux-tls
   rules:
-  - host: news2.512.ch
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: miniflux
-            port:
-              number: 80
-
+    - host: news.512.ch
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: miniflux
+                port:
+                  number: 80
