@@ -32,10 +32,14 @@ spec:
                   key: password
             - name: database__connection__database
               value: "ghost"
-#        volumeMounts:
-#        - name: ghost-data
-#          mountPath: /var/lib/ghost/content
-#      volumes:
-#      - name: ghost-data
-#        persistentVolumeClaim:
-#          claimName: ghost
+          volumeMounts:
+          - name: ghost-data
+            mountPath: /var/lib/ghost/content
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "100m"
+      volumes:
+      - name: ghost-data
+        persistentVolumeClaim:
+          claimName: ghost

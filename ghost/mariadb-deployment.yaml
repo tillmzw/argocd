@@ -1,12 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: mariadb-deployment
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: mariadb
+  replicas: 1
+  serviceName: mariadb
   template:
     metadata:
       labels:
@@ -29,10 +30,14 @@ spec:
             secretKeyRef:
               name: mariadb-password
               key: password
-#        volumeMounts:
-#        - name: mariadb-data
-#          mountPath: /var/lib/mysql
-#      volumes:
-#      - name: mariadb-data
-#        persistentVolumeClaim:
-#          claimName: mariadb
+        volumeMounts:
+        - name: mariadb-data
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: mariadb-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
