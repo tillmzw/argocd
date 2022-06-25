@@ -4,7 +4,8 @@ image:
 tasks:
   - name: set kubernetes context
     command: echo $K8S_CTX | base64 -d > ~/.kube/config
-
+  - name: configure git client
+    command: cp .gitpod.gitconfig ~/.gitconfig
 vscode:
   extensions:
     - ms-kubernetes-tools.vscode-kubernetes-tools
