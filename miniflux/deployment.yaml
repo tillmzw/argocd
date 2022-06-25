@@ -41,3 +41,7 @@ spec:
                 secretKeyRef:
                   name: miniflux-password
                   key: password
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
