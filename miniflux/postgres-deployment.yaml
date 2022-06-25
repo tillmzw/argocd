@@ -36,9 +36,9 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "100m"
-    volumeClaimTemplates:
+  volumeClaimTemplates:
     - metadata:
-      name: postgres-data
+        name: postgres-data
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
