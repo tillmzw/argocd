@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: postgres
 spec:
@@ -7,6 +7,7 @@ spec:
     matchLabels:
       app: postgres
   replicas: 1
+  serviceName: postgres
   template:
     metadata:
       labels:
@@ -35,7 +36,11 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "100m"
-      volumes:
-        - name: postgres-data
-          persistentVolumeClaim:
-            claimName: postgres
+    volumeClaimTemplates:
+    - metadata:
+      name: postgres-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
