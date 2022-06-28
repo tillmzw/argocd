@@ -15,7 +15,7 @@ spec:
     - server: 'https://kubernetes.default.svc'
       namespace: 'argocd'
   sourceRepos:
-    - 'https://github.com/tillmzw/argocd.git'
+    - '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
