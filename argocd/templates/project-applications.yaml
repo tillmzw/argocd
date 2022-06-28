@@ -13,7 +13,10 @@ spec:
   sourceRepos:
     - 'https://github.com/tillmzw/argocd.git'
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
   orphanedResources:
     warn: true
