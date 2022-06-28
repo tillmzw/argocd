@@ -7,5 +7,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   description: "Applications"
+  destinations:
+    - server: 'https://kubernetes.default.svc'
+      namespace: '*'
+  sourceRepos:
+    - 'https://github.com/tillmzw/argocd.git'
   orphanedResources:
     warn: true
