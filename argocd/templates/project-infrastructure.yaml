@@ -12,6 +12,8 @@ spec:
       namespace: 'infrastructure'
     - server: 'https://kubernetes.default.svc'
       namespace: 'kube-system'
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'argocd'
   sourceRepos:
     - 'https://github.com/tillmzw/argocd.git'
   clusterResourceWhitelist:
