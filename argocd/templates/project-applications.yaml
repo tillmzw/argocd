@@ -17,3 +17,5 @@ spec:
       kind: '*'
   orphanedResources:
     warn: true
+    ignore:
+      - kind: 'Secret'
