@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 
 spec:
-  project: infrastructure
+  project: default
   source:
     repoURL: {{ .Values.spec.repo }}
     targetRevision: HEAD
