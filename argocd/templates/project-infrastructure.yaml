@@ -9,7 +9,9 @@ spec:
   description: "Infrastructure components"
   destinations:
     - server: 'https://kubernetes.default.svc'
-      namespace: 'argocd'
+      namespace: 'infrastructure'
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'kube-system'
   sourceRepos:
     - 'https://github.com/tillmzw/argocd.git'
   clusterResourceWhitelist:

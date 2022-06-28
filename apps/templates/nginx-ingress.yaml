@@ -14,7 +14,7 @@ spec:
     chart: ingress-nginx
   destination:
     server: {{ .Values.spec.destination.server }} 
-    namespace: ingress-nginx 
+    namespace: infrastructure
   syncPolicy:
     automated:
       selfHeal: true 

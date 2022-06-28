@@ -14,7 +14,7 @@ spec:
     path: cert-manager
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: cert-manager
+    namespace: infrastructure
   syncPolicy:
     automated:
       selfHeal: true
