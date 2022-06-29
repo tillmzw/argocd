@@ -37,7 +37,7 @@ spec:
             - name: SYMFONY__ENV__DOMAIN_NAME
               value: wallabag.512.ch
             - name: SYMFONY__ENV__SERVER_NAME
-              value: "wallalalü"
+              value: "wallalalu"
       #     volumeMounts:
       #     - name: wallabag-images
       #       mountPath: /var/www/wallabag/web/assets/images
