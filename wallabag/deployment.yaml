@@ -24,20 +24,20 @@ spec:
             - name: SYMFONY__ENV__DATABASE_HOST
               value: "mariadb"
             - name: SYMFONY__ENV__DATABASE_PORT
-              value: 3306
+              value: "3306"
             - name: SYMFONY__ENV__DATABASE_NAME
-              value: wallabag
+              value: "wallabag"
             - name: SYMFONY__ENV__DATABASE_USER
-              value: wallabag
+              value: "wallabag"
             - name: SYMFONY__ENV__DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mariadb-password
                   key: password
             - name: SYMFONY__ENV__DOMAIN_NAME
-              value: wallabag.512.ch
+              value: "wallabag.512.ch"
             - name: SYMFONY__ENV__SERVER_NAME
-              value: "wallalalu"
+              value: "🦙"
       #     volumeMounts:
       #     - name: wallabag-images
       #       mountPath: /var/www/wallabag/web/assets/images
