@@ -37,14 +37,14 @@ spec:
             - name: SYMFONY__ENV__DOMAIN_NAME
               value: wallabag.512.ch
             - name: SYMFONY__ENV__SERVER_NAME
-              value: "🦙"
+              value: "wallalalü"
       #     volumeMounts:
       #     - name: wallabag-images
       #       mountPath: /var/www/wallabag/web/assets/images
-      #     resources:
-      #       limits:
-      #         memory: "512Mi"
-      #         cpu: "100m"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "100m"
       # volumes:
       # - name: wallabag-images
       #   persistentVolumeClaim:
