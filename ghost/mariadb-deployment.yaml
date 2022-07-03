@@ -37,6 +37,7 @@ spec:
     - metadata:
         name: mariadb-data
       spec:
+        storageClassName: longhorn
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
