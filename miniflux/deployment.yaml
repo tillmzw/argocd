@@ -43,5 +43,5 @@ spec:
                   key: password
           resources:
             limits:
-              memory: "512Mi"
-              cpu: "100m"
+              memory: "256Mi"
+              cpu: "50m"
