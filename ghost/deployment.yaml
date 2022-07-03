@@ -19,6 +19,8 @@ spec:
           ports:
             - containerPort: 2368
           env:
+            - name: url
+              value: "https://ghost.512.ch"
             - name: database__client
               value: "mysql"
             - name: database__connection__host
