@@ -35,7 +35,7 @@ spec:
                   name: mariadb-password
                   key: password
             - name: SYMFONY__ENV__DOMAIN_NAME
-              value: "wallabag.512.ch"
+              value: "https://wallabag.512.ch"
             - name: SYMFONY__ENV__SERVER_NAME
               value: "🦙"
       #     volumeMounts:
