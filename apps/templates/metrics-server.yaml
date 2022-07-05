@@ -7,16 +7,16 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 
 spec:
-  project: default
+  project: default 
   source:
-    repoURL: 'https://kubernetes-sigs.github.io/metrics-server/'
-    targetRevision: 3.8.2
-    chart: metrics-server
+    repoURL: {{ .Values.spec.repo }}
+    targetRevision: HEAD
+    path: metrics-server
   destination:
-    server: {{ .Values.spec.destination.server }} 
+    server: {{ .Values.spec.destination.server }}
     namespace: infrastructure
   syncPolicy:
     automated:
-      selfHeal: true 
+      selfHeal: false
     syncOptions:
-      - CreateNamespace=false
+      - CreateNamespace=true
