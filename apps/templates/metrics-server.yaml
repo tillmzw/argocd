@@ -14,8 +14,9 @@ spec:
     chart: metrics-server
     helm:
       values: |
-        defaultArgs:
-          - --kubelet-insecure-tls
+        args:
+          - --kubelet-preferred-address-types=InternalIP
+          - --kubelet-insecure-tls=true
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: infrastructure
