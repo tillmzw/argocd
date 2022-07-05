@@ -12,6 +12,10 @@ spec:
     repoURL: 'https://kubernetes-sigs.github.io/metrics-server/'
     targetRevision: 3.8.2
     chart: metrics-server
+    helm:
+      values: |
+        defaultArgs:
+          - --kubelet-insecure-tls
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: infrastructure
