@@ -30,9 +30,9 @@ spec:
             secretKeyRef:
               name: mariadb-password
               key: password
-      volumeMounts:
-      - name: mariadb-data
-        mountPath: /var/lib/mysql
+        volumeMounts:
+        - name: mariadb-data
+          mountPath: /var/lib/mysql
   volumeClaimTemplates:
     - metadata:
         name: mariadb-data
