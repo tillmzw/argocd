@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: wallabag
+  name: wallabag-images
 spec:
   storageClassName: longhorn
   accessModes: ["ReadWriteOnce"]
