@@ -4,6 +4,7 @@ metadata:
   name: ghost-limit
 spec:
   limits:
+    type: Container
     default:
       cpu: 50Mi
       memory: 500Mi
