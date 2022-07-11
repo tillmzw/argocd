@@ -33,12 +33,12 @@ spec:
         # volumeMounts:
         # - name: mariadb-data
         #   mountPath: /var/lib/mysql
-  volumeClaimTemplates:
-    - metadata:
-        name: mariadb-data
-      spec:
-        storageClassName: linode-block-storage-retain
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
+  # volumeClaimTemplates:
+  #   - metadata:
+  #       name: mariadb-data
+  #     spec:
+  #       storageClassName: linode-block-storage-retain
+  #       accessModes: ["ReadWriteOnce"]
+  #       resources:
+  #         requests:
+  #           storage: 1Gi
