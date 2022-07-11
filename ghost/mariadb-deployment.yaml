@@ -34,6 +34,9 @@ spec:
         - name: mariadb-data
           mountPath: /var/lib/mysql
         resources:
+          requests:
+            cpu: 25Mi
+            memory: 128Mi
           limits:
             cpu: 50Mi
             memory: 256Mi
