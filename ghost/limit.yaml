@@ -1,0 +1,9 @@
+apiVersion: 1
+kind: LimitRange
+metadata:
+  name: ghost-limit
+spec:
+  limits:
+    default:
+      cpu: 50Mi
+      memory: 500Mi
