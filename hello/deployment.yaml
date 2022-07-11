@@ -20,5 +20,5 @@ spec:
         - containerPort: 80
         resources:
           limits:
-            memory: "64Mi"
-            cpu: "10m"
+            cpu: 1m
+            memory: 10Mi
