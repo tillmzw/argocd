@@ -11,9 +11,20 @@ spec:
   tls:
     - hosts:
         - ghost.512.ch
+        - wir-feiern-mit-eu.ch
       secretName: ghost-tls
   rules:
     - host: ghost.512.ch
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: ghost
+              port:
+                number: 80
+    - host: wir-feiern-mit-eu.ch
       http:
         paths:
         - pathType: Prefix
