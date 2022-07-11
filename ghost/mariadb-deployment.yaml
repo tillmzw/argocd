@@ -33,6 +33,10 @@ spec:
         volumeMounts:
         - name: mariadb-data
           mountPath: /var/lib/mysql
+        resources:
+          limits:
+            cpu: 50Mi
+            memory: 256Mi
   volumeClaimTemplates:
     - metadata:
         name: mariadb-data

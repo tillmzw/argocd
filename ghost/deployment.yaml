@@ -39,8 +39,8 @@ spec:
             mountPath: /var/lib/ghost/content
           resources:
             limits:
-              memory: 256Mi
               cpu: 50m
+              memory: 256Mi
       volumes:
       - name: ghost-data
         persistentVolumeClaim:
