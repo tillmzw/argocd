@@ -8,3 +8,6 @@ spec:
     default:
       cpu: 50Mi
       memory: 500Mi
+    defaultRequest:
+      cpu: 10Mi
+      memory: 100Mi
