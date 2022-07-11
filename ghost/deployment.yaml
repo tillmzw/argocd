@@ -20,7 +20,7 @@ spec:
             - containerPort: 2368
           env:
             - name: url
-              value: "https://wir-feiern-mit-eu.ch"
+              value: "https://www.wir-feiern-mit-eu.ch"
             - name: database__client
               value: "mysql"
             - name: database__connection__host
