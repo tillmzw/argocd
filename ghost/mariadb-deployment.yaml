@@ -37,7 +37,7 @@ spec:
     - metadata:
         name: mariadb-data
       spec:
-        storageClassName: longhorn
+        storageClassName: linode-block-storage-retain
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:

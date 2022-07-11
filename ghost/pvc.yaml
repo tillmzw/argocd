@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: ghost
 spec:
-  storageClassName: longhorn
+  storageClassName: linode-block-storage-retain
   accessModes:
     - ReadWriteOnce
   resources:
