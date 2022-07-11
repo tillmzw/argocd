@@ -14,6 +14,7 @@ spec:
         - ghost.512.ch
         - www.wir-feiern-mit-eu.ch
       secretName: ghost-tls
+  rules:
     - host: ghost.512.ch
       http:
         paths:
