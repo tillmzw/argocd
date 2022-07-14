@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://helm.linkerd.io/stable'
     targetRevision: 2.11.4
-    chart: linkerd 
+    chart: linkerd2
     helm:
       parameters:
       - name: identityTrustAnchorsPEM
