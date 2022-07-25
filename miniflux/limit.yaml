@@ -7,4 +7,4 @@ spec:
   - type: Container
     default:
       cpu: 50Mi
-      memory: 150Mi
+      memory: 200Mi

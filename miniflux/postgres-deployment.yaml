@@ -36,8 +36,8 @@ spec:
               name: postgres-data
           resources:
             limits:
-              memory: "256Mi"
-              cpu: "50m"
+              memory: 256Mi
+              cpu: 25m
   volumeClaimTemplates:
     - metadata:
         name: postgres-data
