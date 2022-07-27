@@ -1,14 +1,15 @@
-server:
-  additionalApplications:
-  - name: 512.ch 
-    namespace: argocd 
-    project: default 
-    source:
-      repoURL: 'https://github.com/tillmzw/argocd.git'
-      path: apps
-      targetRevision: master
-    destination:
-      server: https://kubernetes.default.svc
-    syncPolicy:
-      automated:
-        selfHeal: true 
+argo-cd:
+  server:
+    additionalApplications:
+    - name: 512.ch 
+      namespace: argocd 
+      project: default 
+      source:
+        repoURL: 'https://github.com/tillmzw/argocd.git'
+        path: apps
+        targetRevision: master
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          selfHeal: true 
