@@ -10,4 +10,5 @@ spec:
       memory: 25Mi
     default:
       cpu: 30m
-      memory: 100Mi
+      # peak usage of the application controller may be very high
+      memory: 250Mi
