@@ -9,6 +9,6 @@ spec:
       cpu: 5m
       memory: 25Mi
     default:
-      cpu: 30m
       # peak usage of the application controller may be very high
+      cpu: 100m
       memory: 250Mi
