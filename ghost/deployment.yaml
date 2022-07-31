@@ -35,6 +35,25 @@ spec:
                   key: password
             - name: database__connection__database
               value: "ghost"
+            - name: mail__transport
+              value: "smtp"
+            - name: mail__options__service
+              value: "Mailgun"
+            - name: mail__auth__user
+              valueFrom:
+                  secretKeyRef:
+                    name: smtp-credentials
+                    key: username
+            - name: mail__auth__password
+              valueFrom:
+                  secretKeyRef:
+                    name: smtp-credentials
+                    key: password
+            - name: mail_from
+              valueFrom:
+                secretKeyRef:
+                      name: smtp-credentials
+                      key: mailfrom
           volumeMounts:
           - name: ghost-data
             mountPath: /var/lib/ghost/content
