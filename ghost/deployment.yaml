@@ -68,6 +68,7 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 3
             httpGet:
+              scheme: http
               path: "/"
               port: 2368
           resources:
