@@ -44,7 +44,7 @@ spec:
                   secretKeyRef:
                     name: smtp-credentials
                     key: username
-            - name: mail__options__auth__password
+            - name: mail__options__auth__pass
               valueFrom:
                   secretKeyRef:
                     name: smtp-credentials
