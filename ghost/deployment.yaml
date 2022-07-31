@@ -4,7 +4,7 @@ metadata:
   name: ghost
   namespace: ghost
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -70,6 +70,13 @@ spec:
             httpGet:
               path: "/"
               port: 2368
+          resources:
+            requests:
+              cpu: 25m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 500Mi
       volumes:
       - name: ghost-data
         persistentVolumeClaim:
