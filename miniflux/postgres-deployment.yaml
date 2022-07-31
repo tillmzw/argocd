@@ -37,7 +37,7 @@ spec:
               name: postgres-data
           resources:
             limits:
-              memory: 256Mi
+              memory: 200Mi
               cpu: 25m
   volumeClaimTemplates:
     - metadata:
