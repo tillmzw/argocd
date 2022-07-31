@@ -39,6 +39,8 @@ spec:
               value: "SMTP"
             - name: mail__options__service
               value: "Mailgun"
+            - name: mail_options_secure
+              value: "false"
             - name: mail__options__host
               value: "smtp.eu.mailgun.org"
             - name: mail__options__port
