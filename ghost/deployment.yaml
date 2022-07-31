@@ -36,9 +36,15 @@ spec:
             - name: database__connection__database
               value: "ghost"
             - name: mail__transport
-              value: "smtp"
+              value: "SMTP"
             - name: mail__options__service
               value: "Mailgun"
+            - name: mail_options_secure
+              value: "true"
+            - name: mail__options__host
+              value: "smtp.eu.mailgun.org"
+            - name: mail__options__port
+              value: "587" 
             - name: mail__options__auth__user
               valueFrom:
                   secretKeyRef:
@@ -49,13 +55,11 @@ spec:
                   secretKeyRef:
                     name: smtp-credentials
                     key: password
-            - name: mail_from
+            - name: mail__from
               valueFrom:
                 secretKeyRef:
                       name: smtp-credentials
                       key: mailfrom
-            - name: mail_options_secure
-              value: "true"
           volumeMounts:
           - name: ghost-data
             mountPath: /var/lib/ghost/content
