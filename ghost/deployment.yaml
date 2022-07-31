@@ -39,12 +39,12 @@ spec:
               value: "smtp"
             - name: mail__options__service
               value: "Mailgun"
-            - name: mail__auth__user
+            - name: mail__options__auth__user
               valueFrom:
                   secretKeyRef:
                     name: smtp-credentials
                     key: username
-            - name: mail__auth__password
+            - name: mail__options__auth__password
               valueFrom:
                   secretKeyRef:
                     name: smtp-credentials
@@ -54,6 +54,8 @@ spec:
                 secretKeyRef:
                       name: smtp-credentials
                       key: mailfrom
+            - name: mail_options_secure
+              value: "true"
           volumeMounts:
           - name: ghost-data
             mountPath: /var/lib/ghost/content
