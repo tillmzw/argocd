@@ -63,14 +63,14 @@ spec:
           volumeMounts:
           - name: ghost-data
             mountPath: /var/lib/ghost/content
-          readinessProbe:
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            timeoutSeconds: 3
-            httpGet:
-              scheme: HTTP
-              path: "/"
-              port: 2368
+          # readinessProbe:
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 10
+          #   timeoutSeconds: 3
+          #   httpGet:
+          #     scheme: HTTP
+          #     path: "/"
+          #     port: 2368
           resources:
             requests:
               cpu: 25m
