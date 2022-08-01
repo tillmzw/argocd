@@ -16,7 +16,7 @@ spec:
       values: |
         controller:
           config:
-            http-snippet: proxy_cache_path /tmp/nginx-cache-ghost levels=1:2 keys_zone=ghost:2m use_temp_path=off max_size=1g inactive=48h"
+            http-snippet: "proxy_cache_path /tmp/nginx-cache-ghost levels=1:2 keys_zone=ghost:2m use_temp_path=off max_size=1g inactive=24h;"
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: infrastructure
