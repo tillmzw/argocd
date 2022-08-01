@@ -1,5 +1,7 @@
 argo-cd:
   server:
+    config:
+      url: https://argo.512.ch
     additionalApplications:
     - name: 512.ch 
       namespace: argocd 
