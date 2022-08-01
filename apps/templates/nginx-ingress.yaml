@@ -12,6 +12,11 @@ spec:
     repoURL: 'https://kubernetes.github.io/ingress-nginx'
     targetRevision: 4.1.4
     chart: ingress-nginx
+    helm: 
+      values: |
+        controller:
+          config:
+            http-snippet: proxy_cache_path /tmp/nginx-cache-ghost levels=1:2 keys_zone=ghost:2m use_temp_path=off max_size=1g inactive=48h"
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: infrastructure
