@@ -71,11 +71,11 @@ spec:
               port: 2368
           resources:
             requests:
-              cpu: 25m
-              memory: 100Mi
-            limits:
               cpu: 100m
-              memory: 500Mi
+              memory: 250Mi
+            limits:
+              cpu: 250m
+              memory: 250Mi
       volumes:
       - name: ghost-data
         persistentVolumeClaim:
