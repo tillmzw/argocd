@@ -38,9 +38,9 @@ spec:
             hosts:
               - grafana.512.ch
             tls:
-              secretName: grafana-tls
-              hosts:
+              - hosts:
                 - grafana.512.ch
+                secretName: grafana-tls
         prometheusSpec:
           storageSpec:
             volumeClaimTemplate:
@@ -63,9 +63,9 @@ spec:
             hosts:
                 - prometheus.512.ch
             tls:
-              secretName: prometheus-tls
-              hosts:
+              - hosts:
                 - prometheus.512.ch
+                secretName: prometheus-tls
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
