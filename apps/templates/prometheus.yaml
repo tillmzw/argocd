@@ -26,33 +26,39 @@ spec:
                     memory: 75Mi
                     cpu: 25m
         grafana:
-            persistence:
-                enabled: false
-                #type: statefulset
-                #size: 5Gi
             sidecar:                              
                 dashboards:
                     enabled: true
                     label: grafana_dashboard
-        prometheusSpec:
-            storageSpec: {}
-                # volumeClaimTemplate:
-                #    spec:
-                #         resources:
-                #             requests:
-                #                 storage: 5Gi
-            persistentVolume:
-                enabled: false
-            resources:
-                limits:
-                    memory: 250Mi
-                    cpu: 100m
-                requests:
-                    memory: 100Mi
-                    cpu: 50m
             ingress:
                 enabled: true
-                ingressClassName: ngin
+                ingressClassName: nginx
+                annotations:
+                    cert-manager.io/cluster-issuer: "letsencrypt-stage"
+                    kubernetes.io/tls-acme: "true" 
+                    hosts:
+                        - grafana.512.ch
+                    tls:
+                        - hosts:
+                            - grafana.512.ch
+                              secretName: grafana-tls
+        prometheusSpec:
+            storageSpec:
+                 volumeClaimTemplate:
+                    spec:
+                        resources:
+                            requests:
+                                storage: 2Gi
+            resources:
+                requests:
+                    cpu: 50m
+                    memory: 100Mi
+                limits:
+                    cpu: 100m
+                    memory: 250Mi
+            ingress:
+                enabled: true
+                ingressClassName: nginx
                 annotations:
                     cert-manager.io/cluster-issuer: "letsencrypt-stage"
                     kubernetes.io/tls-acme: "true" 
@@ -63,8 +69,5 @@ spec:
                             - prometheus.512.ch
                               secretName: prometheus-tls
   syncPolicy:
-    #automated:
-    #  prune: true
-    #  selfHeal: true
     syncOptions:
       - CreateNamespace=true
