@@ -30,18 +30,18 @@ spec:
                 dashboards:
                     enabled: true
                     label: grafana_dashboard
-            ingress:
-                enabled: true
-                ingressClassName: nginx
-                annotations:
-                    cert-manager.io/cluster-issuer: "letsencrypt-stage"
-                    kubernetes.io/tls-acme: "true" 
-                    hosts:
-                        - grafana.512.ch
-                    tls:
-                        - hosts:
-                            - grafana.512.ch
-                              secretName: grafana-tls
+            # ingress:
+            #     enabled: true
+            #     ingressClassName: nginx
+            #     annotations:
+            #         cert-manager.io/cluster-issuer: "letsencrypt-stage"
+            #         kubernetes.io/tls-acme: "true" 
+            #         hosts:
+            #             - grafana.512.ch
+            #         tls:
+            #             - hosts:
+            #                 - grafana.512.ch
+            #                   secretName: grafana-tls
         prometheusSpec:
             storageSpec:
                  volumeClaimTemplate:
@@ -56,18 +56,18 @@ spec:
                 limits:
                     cpu: 100m
                     memory: 250Mi
-            ingress:
-                enabled: true
-                ingressClassName: nginx
-                annotations:
-                    cert-manager.io/cluster-issuer: "letsencrypt-stage"
-                    kubernetes.io/tls-acme: "true" 
-                    hosts:
-                        - prometheus.512.ch
-                    tls:
-                        - hosts:
-                            - prometheus.512.ch
-                              secretName: prometheus-tls
+            # ingress:
+            #     enabled: true
+            #     ingressClassName: nginx
+            #     annotations:
+            #         cert-manager.io/cluster-issuer: "letsencrypt-stage"
+            #         kubernetes.io/tls-acme: "true" 
+            #         hosts:
+            #             - prometheus.512.ch
+            #         tls:
+            #             - hosts:
+            #                 - prometheus.512.ch
+            #                   secretName: prometheus-tls
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
