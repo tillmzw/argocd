@@ -34,7 +34,6 @@ spec:
                 dashboards:
                     enabled: true
                     label: grafana_dashboard
-                prometheus:
         prometheusSpec:
             storageSpec: {}
                 # volumeClaimTemplate:
@@ -62,7 +61,7 @@ spec:
                     tls:
                         - hosts:
                             - prometheus.512.ch
-                            secretName: prometheus-tls
+                              secretName: prometheus-tls
   syncPolicy:
     #automated:
     #  prune: true
