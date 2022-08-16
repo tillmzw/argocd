@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  destination:
+    namespace: infrastructure
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 15.12.0
+    helm:
+      values: |
+        server:
+            persistentVolume:
+                enabled: false
+            resources:
+                limits:
+                    memory: 250Mi
+                    cpu: 100m
+                requests:
+                    memory: 100Mi
+                    cpu: 50m
+            ingress:
+                enabled: true
+                ingressClassName: nginx
+                annotations:
+                    cert-manager.io/cluster-issuer: "letsencrypt-stage"
+                    kubernetes.io/tls-acme: "true" 
+                    hosts:
+                        - prometheus.512.ch
+                    tls:
+                        - hosts:
+                            - prometheus.512.ch
+                            secretName: prometheus-tls
+        nodeExporter:
+            resources:
+                limits:
+                    memory: 100Mi
+                    cpu: 100m
+                requests:
+                    memory: 75Mi
+                    cpu: 25m
+  syncPolicy:
+    #automated:
+    #  prune: true
+    #  selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
