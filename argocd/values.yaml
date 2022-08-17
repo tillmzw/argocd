@@ -23,6 +23,12 @@ argo-cd:
         automated:
           selfHeal: false 
   controller:
+    args:
+      statusProcessors: 10
+      operationProcessors: 2
+      appResyncPeriod: 300
+      selfHealTimeout: 10
+      repoServerTimeoutSeconds: 120 
     resources:
       limits:
         cpu: 250m
