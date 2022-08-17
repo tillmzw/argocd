@@ -9,9 +9,12 @@ metadata:
 spec:
   project: default 
   source:
-    repoURL: {{ .Values.spec.repo }}
-    targetRevision: HEAD
-    path: cert-manager
+    repoURL: 'https://charts.jetstack.io'
+    targetRevision: v1.9.1
+    chart: cert-manager
+    helm:
+      values: |
+        installCRDs: true
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: infrastructure
@@ -20,3 +23,35 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: "https://acme-v02.api.letsencrypt.org/directory"
+    email: "till@meyerzuwestram.net"
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-stage
+spec:
+  acme:
+    server: "https://acme-staging-v02.api.letsencrypt.org/directory"
+    email: "till@meyerzuwestram.net"
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
