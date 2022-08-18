@@ -35,37 +35,28 @@ spec:
             annotations:
               cert-manager.io/cluster-issuer: "letsencrypt-stage"
               kubernetes.io/tls-acme: "true" 
+              kubernetes.io/ingress.class: "nginx"
             hosts:
               - grafana.512.ch
             tls:
               - hosts:
                 - grafana.512.ch
                 secretName: grafana-tls
-        prometheusSpec:
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                resources:
-                  requests:
-                    storage: 2Gi
-          resources:
-            requests:
-              cpu: 50m
-              memory: 100Mi
-            limits:
-              cpu: 100m
-              memory: 250Mi
-          ingress:
-            enabled: true
-            annotations:
-              cert-manager.io/cluster-issuer: "letsencrypt-stage"
-              kubernetes.io/tls-acme: "true" 
-            hosts:
-                - prometheus.512.ch
-            tls:
-              - hosts:
-                - prometheus.512.ch
-                secretName: prometheus-tls
+        prometheus:
+          prometheusSpec:
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  resources:
+                    requests:
+                      storage: 2Gi
+            resources:
+              requests:
+                cpu: 50m
+                memory: 100Mi
+              limits:
+                cpu: 100m
+                memory: 250Mi
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
