@@ -8,8 +8,10 @@ metadata:
 spec:
   description: "Infrastructure components"
   destinations:
-    - server: 'in-cluster'
+    - server: 'https://kubernetes.default.svc'
       namespace: 'infrastructure'
+  sourceRepos:
+    - '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
