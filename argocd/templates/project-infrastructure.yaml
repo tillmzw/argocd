@@ -10,6 +10,10 @@ spec:
   destinations:
     - server: 'https://kubernetes.default.svc'
       namespace: 'infrastructure'
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'argocd'
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'kube-system'
   sourceRepos:
     - '*'
   clusterResourceWhitelist:
