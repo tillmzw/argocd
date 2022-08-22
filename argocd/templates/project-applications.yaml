@@ -22,3 +22,10 @@ spec:
     warn: true
     ignore:
       - kind: 'Secret'
+  syncWindows:
+    - kind: allow
+      schedule: '0 4 * * *'
+      duration: '2h'
+      manualSync: true
+      applications: 
+        - '*'
