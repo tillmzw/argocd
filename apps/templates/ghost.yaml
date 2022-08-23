@@ -16,7 +16,6 @@ spec:
     server: {{ .Values.spec.destination.server }}
     namespace: ghost
   syncPolicy:
-    automated:
-      selfHeal: true
+    automated: {}
     syncOptions:
       - CreateNamespace=true

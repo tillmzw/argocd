@@ -16,8 +16,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
     namespace: miniflux
   syncPolicy:
-    automated:
-      selfHeal: true
+    automated: {}
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true

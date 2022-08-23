@@ -19,9 +19,7 @@ argo-cd:
         targetRevision: master
       destination:
         server: https://kubernetes.default.svc
-      syncPolicy:
-        automated:
-          selfHeal: false 
+      syncPolicy: {}
   controller:
     args:
       statusProcessors: 10
