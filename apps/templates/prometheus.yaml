@@ -68,3 +68,4 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      - PruneLast=true
