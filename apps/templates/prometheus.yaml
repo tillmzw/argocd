@@ -18,6 +18,7 @@ spec:
         alertManager:
           enabled: false
         nodeExporter:
+          enabled: false
           resources:
             limits:
               memory: 100Mi
@@ -26,6 +27,7 @@ spec:
               memory: 75Mi
               cpu: 25m
         grafana:
+          enabled: false
           adminPassword: "Yk9Pdnpkc3hTOG0xa014WFdRaVZVQmlqcEtFYjFOQTkK"
           sidecar:                              
             dashboards:
@@ -43,7 +45,12 @@ spec:
               - hosts:
                 - grafana.512.ch
                 secretName: grafana-tls
+        nodeExporter:
+          enabled: false
+        prometheusOperator:
+          enabled: false
         prometheus:
+          enabled: false
           prometheusSpec:
             storageSpec:
               volumeClaimTemplate:
