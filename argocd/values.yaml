@@ -9,17 +9,6 @@ argo-cd:
       requests:
         cpu: 50m
         memory: 250Mi
-    additionalApplications:
-    - name: 512.ch 
-      namespace: argocd 
-      project: default 
-      source:
-        repoURL: 'https://github.com/tillmzw/argocd.git'
-        path: apps
-        targetRevision: master
-      destination:
-        server: https://kubernetes.default.svc
-      syncPolicy: {}
   controller:
     args:
       statusProcessors: 10
