@@ -9,9 +9,9 @@ metadata:
 spec:
   project: infrastructure
   source:
-    repoURL: {{ .Values.spec.repo }}
+    repoURL: https://github.com/tillmzw/argocd.git
     targetRevision: master
     path: apps
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: https://kubernetes.default.svc
   syncPolicy: {}
