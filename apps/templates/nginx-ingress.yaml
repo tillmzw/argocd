@@ -17,6 +17,13 @@ spec:
         controller:
           config:
             http-snippet: "proxy_cache_path /tmp/nginx-cache-ghost levels=1:2 keys_zone=ghost:2m use_temp_path=off max_size=1g inactive=24h;"
+            custom-http-errors: "404,500,503"
+        defaultBackend:
+          enabled: true
+          image:
+            registry: registry.hub.docker.com
+            image: kenmoini/custom-nginx-ingress-errors
+            tag: e5262c558ab25d772003b63446c81aeda6f13531
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: infrastructure
