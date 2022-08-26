@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: privatebin
-  namespace: privatebin
+  namespace: {{ .Values.spec.namespace }}
 spec:
   type: ClusterIP
   ports:

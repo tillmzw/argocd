@@ -2,17 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: privatebin-ingress
-  namespace: privatebin
+  namespace: {{ .Values.spec.namespace }}
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: {{ .Values.spec.cert-issuer }}
 spec:
   tls:
   - hosts:
-    - bin.512.ch
+    - {{ .Values.spec.domain }}
     secretName: privatebin-tls 
   rules:
-  - host: bin.512.ch
+  - host: {{ .Values.spec.domain }}
     http:
       paths:
       - pathType: Prefix

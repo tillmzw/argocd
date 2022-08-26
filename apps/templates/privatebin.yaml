@@ -10,8 +10,12 @@ spec:
   project: applications
   source:
     repoURL: {{ .Values.spec.repo }}
-    targetRevision: master
+    targetRevision: HEAD
     path: privatebin
+    helm:
+      values: |
+        domain: bin.{{ .Values.spec.domain }}
+        namespace: privatebin
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: privatebin

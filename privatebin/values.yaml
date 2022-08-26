@@ -1,0 +1,4 @@
+spec:
+  cert-issuer: letsencrypt-stage
+  domain: privatebin
+  namespace: default
