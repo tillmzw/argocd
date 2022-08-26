@@ -15,6 +15,7 @@ spec:
     helm:
       values: |
         domain: bin.{{ .Values.spec.domain }}
+        cert_issuer: letsencrypt-prod
         namespace: privatebin
   destination:
     server: {{ .Values.spec.destination.server }}

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: privatebin
-  namespace: {{ .Values.spec.namespace }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   revisionHistoryLimit: 0
