@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.spec.namespace }}
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: {{ .Values.spec.cert-issuer }}
+    cert-manager.io/cluster-issuer: {{ .Values.spec.cert_issuer }}
 spec:
   tls:
   - hosts:
