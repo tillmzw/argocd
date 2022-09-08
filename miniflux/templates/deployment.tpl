@@ -42,4 +42,4 @@ spec:
                 secretKeyRef:
                   name: miniflux-password
                   key: password
-          resources: {{ .Values.miniflux.resources | toYaml }}
+          resources: {{ .Values.miniflux.resources }}
