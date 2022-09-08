@@ -5,14 +5,14 @@ metadata:
   namespace: miniflux
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: {{ .Values.cert_issuer }}
 spec:
   tls:
     - hosts:
-        - news.512.ch
+        - {{ .Values.domain }}
       secretName: miniflux-tls
   rules:
-    - host: news.512.ch
+    - host: {{ .Values.domain }}
       http:
         paths:
           - pathType: Prefix

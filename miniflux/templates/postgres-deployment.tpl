@@ -35,16 +35,13 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-data
-          resources:
-            limits:
-              memory: 200Mi
-              cpu: 25m
+          resources: {{ .Values.database.resources }}
   volumeClaimTemplates:
     - metadata:
         name: postgres-data
       spec:
-        storageClassName: linode-block-storage-retain
+        storageClassName: {{ .Values.database.storage.className }}
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: 500Mi
+            storage: {{ .Values.database.storage.size }}
