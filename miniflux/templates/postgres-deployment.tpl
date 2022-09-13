@@ -50,4 +50,4 @@ spec:
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: {{ .Values.database.storage.size | default "1Gi" }}
+            storage: {{ .Values.database.storage.size }}
