@@ -14,8 +14,10 @@ spec:
     path: miniflux
     helm:
       values: |
-        domain: news.{{ .Values.spec.domain }}
-        cert_issuer: letsencrypt-prod
+        miniflux:
+          ingress:
+            domain: news.{{ .Values.spec.domain }}
+            cert_issuer: letsencrypt-prod
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: miniflux
