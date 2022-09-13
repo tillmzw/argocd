@@ -43,7 +43,9 @@ spec:
               memory: {{ .Values.database.resources.requests.memory }}
               cpu: {{ .Values.database.resources.requests.memory }}
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
         name: postgres-data
       spec:
         storageClassName: {{ .Values.database.storage.className | default "default" }}
