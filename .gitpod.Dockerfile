@@ -2,6 +2,7 @@ FROM gitpod/workspace-base:latest
 
 ARG KUBECTL_VERSION=v1.22.2
 ARG KUBESEAL_VERSION=0.18.0
+ARG HELM_VERSION=3.0.0
 
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
@@ -12,6 +13,10 @@ RUN curl -LO https://github.com/bitnami-labs/sealed-secrets/releases/download/v$
     tar xf kubeseal-${KUBESEAL_VERSION}-linux-amd64.tar.gz && \
     chmod +x ./kubeseal && \
     sudo mv ./kubeseal /usr/local/bin/kubeseal
+
+RUN curl -LO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
+    tar xf helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
+    sudo mv linux-amd64/helm /usr/local/bin/helm
 
 #RUN set -x; cd "$(mktemp -d)" && \
 #    OS="$(uname | tr '[:upper:]' '[:lower:]')" && \
