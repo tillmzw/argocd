@@ -1,6 +1,7 @@
-cert_issuer: letsencrypt-stage
-domain: miniflux
 miniflux:
+  ingress:
+    cert_issuer: letsencrypt-stage
+    domain: miniflux
   resources:
     limits:
       memory: 50Mi
