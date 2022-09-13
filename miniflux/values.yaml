@@ -1,0 +1,22 @@
+miniflux:
+  ingress:
+    cert_issuer: letsencrypt-stage
+    domain: miniflux
+  resources:
+    limits:
+      memory: 50Mi
+      cpu: 20m
+    requests:
+      memory: 40Mi
+      cpu: 15m
+database:
+  storage:
+    className: default
+    size: 5Gi
+  resources:
+    limits:
+      memory: 150Mi
+      cpu: 25m
+    requests:
+      memory: 100Mi
+      cpu: 20m

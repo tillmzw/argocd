@@ -2,17 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: miniflux-ingress
-  namespace: miniflux
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: {{ .Values.miniflux.ingress.cert_issuer }}
 spec:
   tls:
     - hosts:
-        - news.512.ch
+        - {{ .Values.miniflux.ingress.domain }}
       secretName: miniflux-tls
   rules:
-    - host: news.512.ch
+    - host: {{ .Values.miniflux.ingress.domain }}
       http:
         paths:
           - pathType: Prefix

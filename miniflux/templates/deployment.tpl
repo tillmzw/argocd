@@ -44,5 +44,8 @@ spec:
                   key: password
           resources:
             limits:
-              memory: "100Mi"
-              cpu: "20m"
+              memory: {{ .Values.miniflux.resources.limits.memory }}
+              cpu: {{ .Values.miniflux.resources.limits.cpu }}
+            requests:
+              memory: {{ .Values.miniflux.resources.requests.memory }}
+              cpu: {{ .Values.miniflux.resources.requests.cpu }}

@@ -37,14 +37,19 @@ spec:
               name: postgres-data
           resources:
             limits:
-              memory: 200Mi
-              cpu: 25m
+              memory: {{ .Values.database.resources.limits.memory }}
+              cpu: {{ .Values.database.resources.limits.cpu }}
+            requests:
+              memory: {{ .Values.database.resources.requests.memory }}
+              cpu: {{ .Values.database.resources.requests.cpu }}
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
         name: postgres-data
       spec:
-        storageClassName: linode-block-storage-retain
+        storageClassName: {{ .Values.database.storage.className | default "default" }}
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: 500Mi
+            storage: {{ .Values.database.storage.size }}
