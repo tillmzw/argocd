@@ -41,7 +41,7 @@ spec:
               cpu: {{ .Values.database.resources.limits.cpu }}
             requests:
               memory: {{ .Values.database.resources.requests.memory }}
-              cpu: {{ .Values.database.resources.requests.memory }}
+              cpu: {{ .Values.database.resources.requests.cpu }}
   volumeClaimTemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
