@@ -42,4 +42,10 @@ spec:
                 secretKeyRef:
                   name: miniflux-password
                   key: password
-          resources: {{ .Values.miniflux.resources }}
+          resources:
+            limits:
+              memory: {{ .Values.miniflux.resources.limits.memory }}
+              cpu: {{ .Values.miniflux.resources.limits.cpu }}
+            requests:
+              memory: {{ .Values.miniflux.resources.requests.memory }}
+              cpu: {{ .Values.miniflux.resources.requests.memory }}

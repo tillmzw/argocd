@@ -35,13 +35,19 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-data
-          resources: {{ .Values.database.resources }}
+          resources:
+            limits:
+              memory: {{ .Values.database.resources.limits.memory }}
+              cpu: {{ .Values.database.resources.limits.cpu }}
+            requests:
+              memory: {{ .Values.database.resources.requests.memory }}
+              cpu: {{ .Values.database.resources.requests.memory }}
   volumeClaimTemplates:
     - metadata:
         name: postgres-data
       spec:
-        storageClassName: {{ .Values.database.storage.className }}
+        storageClassName: {{ .Values.database.storage.className | default "default" }}
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: {{ .Values.database.storage.size }}
+            storage: {{ .Values.database.storage.size | default "1Gi" }}
