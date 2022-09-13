@@ -20,7 +20,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
     namespace: miniflux
   syncPolicy:
-    #automated: {}
+    automated: {}
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
