@@ -48,4 +48,4 @@ spec:
               cpu: {{ .Values.miniflux.resources.limits.cpu }}
             requests:
               memory: {{ .Values.miniflux.resources.requests.memory }}
-              cpu: {{ .Values.miniflux.resources.requests.memory }}
+              cpu: {{ .Values.miniflux.resources.requests.cpu }}
