@@ -41,8 +41,8 @@ spec:
             port: 8080
         resources:
           limits:
-            memory: "30Mi"
-            cpu: "5m"
+            memory: "50Mi"
+            cpu: "20m"
 
       volumes:
         - name: privatebin-data
