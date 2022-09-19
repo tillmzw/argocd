@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ghost
-  namespace: ghost
 spec:
-  replicas: 1
+  replicas: {{ .Values.ghost.replicas }}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -21,7 +20,7 @@ spec:
             - containerPort: 2368
           env:
             - name: url
-              value: "https://www.wir-feiern-mit-eu.ch"
+              value: {{ .Values.ghost.ingress.domain }}
             - name: database__client
               value: "mysql"
             - name: database__connection__host
@@ -71,11 +70,11 @@ spec:
               port: 2368
           resources:
             requests:
-              cpu: 100m
-              memory: 250Mi
+              cpu: {{ .Values.ghost.resources.requests.cpu }}
+              memory: {{ .Values.ghost.resources.requests.memory }}
             limits:
-              cpu: 250m
-              memory: 250Mi
+              cpu: {{ .Values.ghost.resources.limits.cpu }}
+              memory: {{ .Values.ghost.resources.limits.memory }}
       volumes:
       - name: ghost-data
         persistentVolumeClaim:

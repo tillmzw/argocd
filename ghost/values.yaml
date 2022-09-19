@@ -1,0 +1,26 @@
+ghost:
+  ingress:
+    cert_issuer: letsencrypt-stage
+    domain: ghost
+  storage:
+    className: default
+    size: 5Gi
+  replicas: 1
+  resources:
+    limits:
+      memory: 250Mi
+      cpu: 250m
+    requests:
+      memory: 250Mi
+      cpu: 100m
+database:
+  storage:
+    className: default
+    size: 5Gi
+  resources:
+    limits:
+      memory: 150Mi
+      cpu: 100m
+    requests:
+      memory: 100Mi
+      cpu: 50m
