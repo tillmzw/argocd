@@ -10,12 +10,10 @@ data:
     sizelimit = 10485760
     info = ""
     notice = "Caution: data may be deleted at any time."
+    template = "bootstrap-compact"
     [expire]
     default = "1day"
     [model]
-    class = Database
+    class = Filesystem
     [model_options]
-    dsn = "sqlite:" PATH "data/db.sq3"
-    usr = null
-    pwd = null
-    opt[12] = true    ; PDO::ATTR_PERSISTENT
+    dir = PATH "data"
