@@ -6,6 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: {{ .Values.cert_issuer }}
+    nginx.ingress.kubernetes.io/proxy-body-size: 10m
 spec:
   tls:
   - hosts:
