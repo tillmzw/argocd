@@ -4,7 +4,7 @@ ghost:
     domain: ghost
     proto: https
   storage:
-    className: linode-block-storage-retain
+    className: default
     size: 5Gi
   replicas: 1
   resources:
@@ -16,7 +16,7 @@ ghost:
       cpu: 100m
 database:
   storage:
-    className: linode-block-storage-retain
+    className: default
     size: 5Gi
   resources:
     limits:
