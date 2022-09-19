@@ -3,7 +3,7 @@ ghost:
     cert_issuer: letsencrypt-stage
     domain: ghost
   storage:
-    className: default
+    className: linode-block-storage-retain
     size: 5Gi
   replicas: 1
   resources:
@@ -15,7 +15,7 @@ ghost:
       cpu: 100m
 database:
   storage:
-    className: default
+    className: linode-block-storage-retain
     size: 5Gi
   resources:
     limits:
