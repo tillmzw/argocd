@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: ghost
 spec:
-  storageClassName: linode-block-storage-retain
+  storageClassName: {{ .Values.ghost.storage.className }}
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: {{ .Values.ghost.storage.size }}

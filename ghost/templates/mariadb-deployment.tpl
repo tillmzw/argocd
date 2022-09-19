@@ -35,17 +35,19 @@ spec:
           mountPath: /var/lib/mysql
         resources:
           requests:
-            cpu: 50m
-            memory: 100Mi
+            cpu: {{ .Values.database.resources.requests.cpu }}
+            memory: {{ .Values.database.resources.requests.memory }}
           limits:
-            cpu: 100m
-            memory: 150Mi
+            cpu: {{ .Values.database.resources.limits.cpu }}
+            memory: {{ .Values.database.resources.limits.memory }}
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
         name: mariadb-data
       spec:
-        storageClassName: linode-block-storage-retain
+        storageClassName: {{ .Values.database.storage.className | default "default" }}
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: 500Mi
+            storage: {{ .Values.database.storage.size }}

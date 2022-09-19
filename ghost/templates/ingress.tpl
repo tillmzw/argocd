@@ -2,12 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ghost-ingress
-  namespace: ghost
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: {{ .Values.ghost.ingress.cert_issuer }}
     ingress.kubernetes.io/proxy-body-size: "10m"
-    nginx.ingress.kubernetes.io/server-alias: "www.wir-feiern-mit-eu.ch"
+    nginx.ingress.kubernetes.io/server-alias: {{ .Values.ghost.ingress.domain }}
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_cache ghost;
@@ -19,11 +18,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - ghost.512.ch
-        - www.wir-feiern-mit-eu.ch
+        - {{ .Values.ghost.ingress.domain }}
       secretName: ghost-tls
   rules:
-    - host: ghost.512.ch
+    - host: {{ .Values.ghost.ingress.domain }}
       http:
         paths:
         - pathType: Prefix
