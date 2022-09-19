@@ -20,7 +20,7 @@ spec:
             - containerPort: 2368
           env:
             - name: url
-              value: {{ .Values.ghost.ingress.domain }}
+              value: "{{ .Values.ghost.ingress.proto }}://{{ .Values.ghost.ingress.domain }}"
             - name: database__client
               value: "mysql"
             - name: database__connection__host

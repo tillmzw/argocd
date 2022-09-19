@@ -2,6 +2,7 @@ ghost:
   ingress:
     cert_issuer: letsencrypt-stage
     domain: ghost
+    proto: https
   storage:
     className: linode-block-storage-retain
     size: 5Gi
