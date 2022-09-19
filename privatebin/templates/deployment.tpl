@@ -14,13 +14,9 @@ spec:
       labels:
         app: privatebin
     spec:
-      #volumes:
-      #- name: privatebin-data
-      #  persistentVolumeClaim:
-      #    claimName: privatebin-data-pvc
       containers:
       - name: privatebin
-        image: privatebin/nginx-fpm-alpine 
+        image: privatebin/nginx-fpm-alpine:1.4.0 
         ports:
         - containerPort: 8080
         env:
@@ -28,6 +24,12 @@ spec:
           value: Europe/Zurich
         - name: PHP_TZ
           value: Europe/Zurich
+        volumeMounts:
+          - name: privatebin-data
+            mountPath: /srv/data 
+          - name: privatebin-config
+            mountPath: /srv/cfg
+            readOnly: true
         readinessProbe:
           initialDelaySeconds: 10
           periodSeconds: 10
@@ -42,8 +44,9 @@ spec:
             memory: "30Mi"
             cpu: "5m"
 
-        #volumeMounts:
-        #- mountPath: /srv/data
-        #  name: privatebin-data
-        #  readOnly: False
-
+      volumes:
+        - name: privatebin-data
+          emptyDir: {}
+        - name: privatebin-config
+          configMap: 
+            name: privatebin-config

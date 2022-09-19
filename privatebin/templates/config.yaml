@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: privatebin-config
+data:
+  conf.php: |
+    [main]
+    discussion = false
+    fileupload = true
+    sizelimit = 10485760
+    info = ""
+    notice = "Caution: data may be deleted at any time."
+    [expire]
+    default = "1day"
