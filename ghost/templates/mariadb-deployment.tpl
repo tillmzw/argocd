@@ -41,10 +41,12 @@ spec:
             cpu: {{ .Values.database.resources.limits.cpu }}
             memory: {{ .Values.database.resources.limits.memory }}
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
         name: mariadb-data
       spec:
-        storageClassName: {{ .Values.database.storage.className }}
+        storageClassName: {{ .Values.database.storage.className | default "default" }}
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
