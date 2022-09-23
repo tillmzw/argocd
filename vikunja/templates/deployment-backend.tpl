@@ -14,6 +14,8 @@ spec:
       labels:
         app: backend
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
       - name: backend
         image: vikunja/api 
