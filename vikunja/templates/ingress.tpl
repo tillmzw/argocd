@@ -17,16 +17,23 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-      - pathType: Prefix
         path: "/api"
         backend:
           service:
             name: backend
             port:
               number: 3456
+      - pathType: Prefix
+        path: "/dav"
+        backend:
+          service:
+            name: backend
+            port:
+              number: 3456
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
