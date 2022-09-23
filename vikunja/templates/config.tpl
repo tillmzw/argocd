@@ -8,5 +8,6 @@ data:
     service:
       frontendurl: {{ .Values.domain }}
       enableemailreminders: false
+      enableregistration: true
     database:
       type: sqlite
