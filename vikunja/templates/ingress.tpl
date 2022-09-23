@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
     - {{ .Values.domain }}
-    secretName: frontend-tls 
+    secretName: vikunja-tls 
   rules:
   - host: {{ .Values.domain }}
     http:
@@ -23,4 +23,10 @@ spec:
             name: frontend
             port:
               number: 80
-
+      - pathType: Prefix
+        path: "/api"
+        backend:
+          service:
+            name: backend
+            port:
+              number: 3456
