@@ -29,7 +29,7 @@ spec:
           subPath: config.yaml
         readinessProbe:
           httpGet:
-            path: /
+            path: /api/v1/info
             port: 3456
         resources:
           requests:
