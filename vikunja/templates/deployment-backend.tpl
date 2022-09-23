@@ -25,8 +25,8 @@ spec:
           mountPath: /app/vikunja/files
           subPath: files
         - name: vikunja-storage
-          mountPath: /app/vikunja/vikunja.db
-          subPath: vikunja.db
+          mountPath: /app/vikunja/db
+          subPath: db
         - name: vikunja-config
           mountPath: /app/vikunja/config.yaml
           readOnly: true

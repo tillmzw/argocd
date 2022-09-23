@@ -11,4 +11,4 @@ data:
       enableregistration: true
     database:
       type: sqlite
-      path: ./vikunja.db
+      path: ./db/vikunja.db
