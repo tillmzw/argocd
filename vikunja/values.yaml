@@ -1,3 +1,7 @@
 cert_issuer: letsencrypt-stage
 domain: vikunja
 namespace: default
+backend:
+  storage:
+    className: default
+    size: 5Gi

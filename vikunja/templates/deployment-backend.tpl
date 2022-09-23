@@ -21,8 +21,12 @@ spec:
         - containerPort: 3456
         env:
         volumeMounts:
-        - name: vikunja-upload
+        - name: vikunja-storage
           mountPath: /app/vikunja/files
+          subPath: files
+        - name: vikunja-storage
+          mountPath: /app/vikunja/vikunja.db
+          subPath: vikunja.db
         - name: vikunja-config
           mountPath: /app/vikunja/config.yaml
           readOnly: true
@@ -39,8 +43,9 @@ spec:
             memory: 50Mi
             cpu: 20m
       volumes:
-      - name: vikunja-upload
-        emptyDir: {}
+      - name: vikunja-storage
+        persistentVolumeClaim:
+          claimName: vikunja-storage
       - name: vikunja-config
         configMap: 
           name: vikunja-config
