@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
-  revisionHistoryLimit: 0
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: frontend
