@@ -1,0 +1,7 @@
+cert_issuer: letsencrypt-stage
+domain: vikunja
+namespace: default
+backend:
+  storage:
+    className: linode-block-storage-retain
+    size: 5Gi
