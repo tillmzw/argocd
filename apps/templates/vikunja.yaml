@@ -12,6 +12,11 @@ spec:
     repoURL: {{ .Values.spec.repo }}
     targetRevision: master 
     path: vikunja
+    helm:
+      values: |
+        domain: do.{{ .Values.spec.domain }}
+        cert_issuer: letsencrypt-prod
+        namespace: vikunja
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: vikunja
