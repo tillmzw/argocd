@@ -18,7 +18,7 @@ spec:
         fsGroup: 1000
       containers:
       - name: backend
-        image: vikunja/api 
+        image: vikunja/api:0.19.2
         ports:
         - containerPort: 3456
         env:
@@ -39,11 +39,11 @@ spec:
             port: 3456
         resources:
           requests:
-            memory: 25Mi
-            cpu: 10m
+            memory: {{ .Values.backend.resources.requests.memory }}
+            cpu: {{ .Values.backend.resources.requests.cpu }}
           limits:
-            memory: 50Mi
-            cpu: 20m
+            memory: {{ .Values.backend.resources.limits.memory }}
+            cpu: {{ .Values.backend.resources.limits.cpu }}
       volumes:
       - name: vikunja-storage
         persistentVolumeClaim:

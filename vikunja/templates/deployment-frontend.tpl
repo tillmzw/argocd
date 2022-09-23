@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vikunja/frontend 
+        image: vikunja/frontend:0.19.1
         ports:
         - containerPort: 80
         env:
@@ -28,8 +28,8 @@ spec:
             port: 80
         resources:
           requests:
-            memory: 25Mi
-            cpu: 10m
+            memory: {{ .Values.frontend.resources.requests.memory }}
+            cpu: {{ .Values.frontend.resources.requests.cpu }}
           limits:
-            memory: 50Mi
-            cpu: 20m
+            memory: {{ .Values.frontend.resources.limits.memory }}
+            cpu: {{ .Values.frontend.resources.limits.cpu }}

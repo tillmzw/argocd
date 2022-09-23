@@ -5,3 +5,18 @@ backend:
   storage:
     className: linode-block-storage-retain
     size: 5Gi
+  resources:
+    requests:
+      cpu: 25m
+      memory: 50Mi
+    limits:
+      cpu: 50m
+      memory: 75Mi
+frontend:
+  resources:
+    requests:
+      cpu: 20m
+      memory: 50Mi
+    limits:
+      cpu: 50m
+      memory: 100Mi
