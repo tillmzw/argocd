@@ -39,7 +39,7 @@ spec:
             memory: 50Mi
             cpu: 20m
       volumes:
-      - name: vikunja-uploads
+      - name: vikunja-upload
         emptyDir: {}
       - name: vikunja-config
         configMap: 
