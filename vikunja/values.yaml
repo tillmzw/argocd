@@ -1,0 +1,3 @@
+cert_issuer: letsencrypt-stage
+domain: vikunja
+namespace: default
