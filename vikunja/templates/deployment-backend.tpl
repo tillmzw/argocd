@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vikunja
+  name: backend
   namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
@@ -24,7 +24,7 @@ spec:
         - name: vikunja-upload
           mountPath: /app/vikunja/files
         - name: vikunja-config
-          mountPath: /app/vikunja/
+          mountPath: /app/vikunja/config.yaml
           readOnly: true
           subPath: config.yaml
         readinessProbe:

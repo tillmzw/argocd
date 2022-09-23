@@ -21,7 +21,7 @@ spec:
         - containerPort: 80
         env:
         - name: VIKUNJA_API_URL
-          value: {{ .Values.domain }}
+          value: {{ .Values.domain }}/api/v1
         readinessProbe:
           httpGet:
             path: /
