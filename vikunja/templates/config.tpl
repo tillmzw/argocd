@@ -6,7 +6,7 @@ metadata:
 data:
   config.yaml: |
     service:
-      frontendurl: https://{{ .Values.domain }}/api/v1
+      frontendurl: https://{{ .Values.domain }}
       enableemailreminders: false
       enableregistration: true
     database:
