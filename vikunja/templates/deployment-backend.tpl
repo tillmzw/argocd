@@ -22,6 +22,21 @@ spec:
         ports:
         - containerPort: 3456
         env:
+        - name: VIKUNJA_MAILER_FROMEMAIL
+          valueFrom:
+            secretKeyRef:
+              name: vikunja-smtp-password
+              key: username
+        - name: VIKUNJA_MAILER_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: vikunja-smtp-password
+              key: username
+        - name: VIKUNJA_MAILER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vikunja-smtp-password
+              key: password
         volumeMounts:
         - name: vikunja-storage
           mountPath: /app/vikunja/files

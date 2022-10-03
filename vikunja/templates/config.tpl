@@ -7,8 +7,14 @@ data:
   config.yaml: |
     service:
       frontendurl: https://{{ .Values.domain }}
-      enableemailreminders: false
+      enableemailreminders: true
       enableregistration: true
     database:
       type: sqlite
       path: ./db/vikunja.db
+    mailer:
+      enabled: true
+      host: smtp.mailgun.org
+      port: 587
+      forcessl: true
+      authtype: login
