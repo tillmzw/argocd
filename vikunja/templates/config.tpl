@@ -14,7 +14,6 @@ data:
       path: ./db/vikunja.db
     mailer:
       enabled: true
-      host: smtp.mailgun.org
+      host: smtp.eu.mailgun.org
       port: 587
-      forcessl: true
       authtype: login
