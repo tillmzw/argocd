@@ -37,6 +37,11 @@ spec:
             secretKeyRef:
               name: vikunja-smtp-password
               key: password
+        - name: VIKUNJA_SERVICE_JWTSECRET
+          valueFrom:
+            secretKeyRef:
+              name: vikunja-jwt-secret
+              key: jwt-secret
         volumeMounts:
         - name: vikunja-storage
           mountPath: /app/vikunja/files
