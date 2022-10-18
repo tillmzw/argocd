@@ -26,4 +26,3 @@ github:
 vscode:
   extensions:
     - ms-kubernetes-tools.vscode-kubernetes-tools
-    - vscodevim.vim
