@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ghost
-          image: ghost:5.25.0-alpine
+          image: ghost:5.25.1-alpine
           ports:
             - containerPort: 2368
           env:
