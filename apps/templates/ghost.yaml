@@ -15,7 +15,7 @@ spec:
     helm:
       values: |
         ghost:
-          replicas: 0
+          replicas: 1
           ingress:
             domain: www.wir-feiern-mit-eu.ch
             cert_issuer: letsencrypt-prod
