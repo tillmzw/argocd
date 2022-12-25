@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: privatebin
-        image: privatebin/fs:1.5.0 
+        image: privatebin/fs:1.5.1 
         ports:
         - containerPort: 8080
         env:
