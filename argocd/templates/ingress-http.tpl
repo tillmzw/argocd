@@ -1,16 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-grpc-ingress
+  name: argocd-server-http-ingress
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   rules:
-  - host: grpc.argo.512.ch
+  - host: {{ index .Values "argo-cd" "ingress" "domain" }}
     http:
       paths:
       - path: /
@@ -19,8 +20,8 @@ spec:
           service:
             name: argocd-server
             port:
-              name: https
+              name: http
   tls:
   - hosts:
-    - grpc.argo.512.ch
+    - {{ index .Values "argo-cd" "ingress" "domain" }}
     secretName: argocd-secret # do not change, this is provided by Argo CD

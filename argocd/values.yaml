@@ -1,7 +1,11 @@
 argo-cd:
+  ingress:
+    domain: argo.512.ch
   server:
     config:
       url: https://argo.512.ch
+    extraArgs:
+      - --insecure
     resources:
       limits:
         cpu: 250m
@@ -23,7 +27,3 @@ argo-cd:
       requests:
         cpu: 50m
         memory: 250Mi
-  configs:
-    params:
-      server:
-        insecure: true
