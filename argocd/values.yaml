@@ -23,3 +23,7 @@ argo-cd:
       requests:
         cpu: 50m
         memory: 250Mi
+  configs:
+    params:
+      server:
+        insecure: true
