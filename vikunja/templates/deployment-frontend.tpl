@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vikunja/frontend:0.20.3
+        image: vikunja/frontend:0.20.4
         ports:
         - containerPort: 80
         env:
