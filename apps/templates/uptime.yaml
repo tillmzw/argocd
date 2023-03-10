@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: uptime 
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: applications
+  source:
+    repoURL: {{ .Values.spec.repo }}
+    targetRevision: master
+    path: uptime
+    helm:
+      values: |
+        uptime:
+          ingress:
+            domain: up.{{ .Values.spec.domain }}
+            cert_issuer: letsencrypt-prod
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: uptime
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
