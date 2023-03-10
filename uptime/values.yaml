@@ -10,5 +10,5 @@ uptime:
       memory: 40Mi
       cpu: 15m
   storage:
-    className: default
+    className: linode-block-storage-retain
     size: 5Gi
