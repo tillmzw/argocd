@@ -17,7 +17,7 @@ spec:
         uptime:
           ingress:
             domain: up.{{ .Values.spec.domain }}
-            cert_issuer: letsencrypt-stage
+            cert_issuer: letsencrypt-prod
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: uptime
