@@ -5,6 +5,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: {{ .Values.uptime.ingress.cert_issuer }}
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header   Upgrade $http_upgrade;
       proxy_set_header   Connection "upgrade";
