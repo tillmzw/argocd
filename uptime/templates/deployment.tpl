@@ -25,9 +25,9 @@ spec:
             requests:
               memory: {{ .Values.uptime.resources.requests.memory }}
               cpu: {{ .Values.uptime.resources.requests.cpu }}
-        volumeMounts:
-        - name: uptime-data
-          mountPath: /app/data
+          volumeMounts:
+          - name: uptime-data
+            mountPath: /app/data
   volumeClaimTemplates:
     - apiVersion: v1
       kind: PersistentVolumeClaim
