@@ -1,0 +1,14 @@
+uptime:
+  ingress:
+    cert_issuer: letsencrypt-stage
+    domain: up
+  resources:
+    limits:
+      memory: 50Mi
+      cpu: 20m
+    requests:
+      memory: 40Mi
+      cpu: 15m
+  storage:
+    className: default
+    size: 5Gi
