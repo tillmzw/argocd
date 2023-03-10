@@ -4,11 +4,11 @@ uptime:
     domain: up
   resources:
     limits:
-      memory: 50Mi
-      cpu: 20m
+      memory: 150Mi
+      cpu: 200m
     requests:
-      memory: 40Mi
-      cpu: 15m
+      memory: 100Mi
+      cpu: 50m
   storage:
     className: linode-block-storage-retain
     size: 5Gi
