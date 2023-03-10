@@ -18,6 +18,11 @@ spec:
           image: louislam/uptime-kuma:1@sha256:e15da2d215d837e8830afdb2de5ed01ba120fa1275fcbb4c68cde447601e1bd7
           ports:
             - containerPort: 3001
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3001
+              scheme: HTTP
           resources:
             limits:
               memory: {{ .Values.uptime.resources.limits.memory }}
