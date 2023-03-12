@@ -23,7 +23,8 @@ spec:
           image:
             registry: registry.hub.docker.com
             image: kenmoini/custom-nginx-ingress-errors
-            tag: e5262c558ab25d772003b63446c81aeda6f13531
+            tag: latest
+            digest: sha256:a25d945abfcede571408e78781f86c1e3aadada5d5fb4815354496bf39daac0f
   destination:
     server: {{ .Values.spec.destination.server }} 
     namespace: infrastructure
