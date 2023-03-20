@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: uptime
-          image: louislam/uptime-kuma:1@sha256:e15da2d215d837e8830afdb2de5ed01ba120fa1275fcbb4c68cde447601e1bd7
+          image: louislam/uptime-kuma:1@sha256:f3261a7d2f04384d7f6015caaab0d78c7abe8b2f77b4cc09fb2a55bd2f13dcf9
           ports:
             - containerPort: 3001
           readinessProbe:
