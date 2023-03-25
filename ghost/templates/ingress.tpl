@@ -8,6 +8,7 @@ metadata:
     ingress.kubernetes.io/proxy-body-size: "10m"
     nginx.ingress.kubernetes.io/server-alias: {{ .Values.ghost.ingress.domain }}
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_cache ghost;
       proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
