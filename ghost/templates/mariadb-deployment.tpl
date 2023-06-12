@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mariadb
-        image: mariadb:10.11@sha256:c1d484109ed30e02125d1ae0519ce3aae5d6717dd30356fe3725a8a13f09fe67
+        image: mariadb:11.0@sha256:63f4ae82d147dddf4e8f206c71cd58ae0c035f2a9e213206f87320e4a1832b49
         ports:
         - containerPort: 3306 
         env:
