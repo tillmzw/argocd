@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ghost
-          image: ghost:5.55.0-alpine@sha256:458d912551b63370206aa079eb93f6fafae1a601398576649732f76b1c26aa05
+          image: ghost:5.55.2-alpine@sha256:b4d3954872d53ce4105df513f5aed76239555ce94d18a433db8598342c77d87e
           ports:
             - containerPort: 2368
           env:
