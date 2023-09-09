@@ -6,9 +6,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: {{ .Values.cert_issuer }}
-    nginx.ingress.kubernetes.io/proxy-pass: https://publish.obsidian.md/serve?url={{ .Values.domain }}/schatten-ueber-stranfeste 
-    nginx.ingress.kubernetes.io/proxy-ssl-server-name: on
-    nginx.ingress.kubernetes.io/proxy-set-header: Host publish.obsidian.md
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location /schatten-ueber-stranfeste {
+        proxy_pass https://publish.obsidian.md/serve?url={{ .Values.domain }}/schatten-ueber-stranfeste;
+        proxy_set_header Host publish.obsidian.md;
+        proxy_ssl_server_name on;
+      }
 spec:
   tls:
   - hosts:
