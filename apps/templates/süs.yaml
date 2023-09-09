@@ -11,11 +11,11 @@ spec:
   source:
     repoURL: {{ .Values.spec.repo }}
     targetRevision: feature/sus-proxy 
-    path: sus-proxy
+    path: süs-proxy
     helm:
       values: |
         domain: bin.{{ .Values.spec.domain }}
-        cert_issuer: letsencrypt-prod
+        cert_issuer: letsencrypt-stage
         namespace: sus-proxy
   destination:
     server: {{ .Values.spec.destination.server }}
