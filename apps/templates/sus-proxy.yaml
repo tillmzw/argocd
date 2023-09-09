@@ -14,7 +14,7 @@ spec:
     path: sus-proxy
     helm:
       values: |
-        domain: bin.{{ .Values.spec.domain }}
+        domain: sus.{{ .Values.spec.domain }}
         cert_issuer: letsencrypt-stage
         namespace: sus-proxy
   destination:
