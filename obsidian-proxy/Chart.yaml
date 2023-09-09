@@ -1,6 +1,6 @@
 apiVersion: v2
 name: obsidian-proxy
-description:Obsidian Publish Proxy  
+description: Obsidian Publish Proxy  
 
 type: application
 version: 0.0.1
