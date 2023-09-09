@@ -19,13 +19,4 @@ spec:
     secretName: sus-proxy-tls 
   rules:
   - host: {{ .Values.domain }}
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: sus-proxy-remote
-            port:
-              number: 443
 
