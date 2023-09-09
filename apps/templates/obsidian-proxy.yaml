@@ -14,8 +14,8 @@ spec:
     path: obsidian-proxy
     helm:
       values: |
-        domain: sus.{{ .Values.spec.domain }}
-        cert_issuer: letsencrypt-stage
+        domain: pub.{{ .Values.spec.domain }}
+        cert_issuer: letsencrypt-prod
         namespace: obsidian-proxy
   destination:
     server: {{ .Values.spec.destination.server }}
