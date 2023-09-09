@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sus-proxy 
+  name: obsidian-proxy 
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,15 +11,15 @@ spec:
   source:
     repoURL: {{ .Values.spec.repo }}
     targetRevision: feature/sus-proxy 
-    path: sus-proxy
+    path: obsidian-proxy
     helm:
       values: |
         domain: sus.{{ .Values.spec.domain }}
         cert_issuer: letsencrypt-stage
-        namespace: sus-proxy
+        namespace: obsidian-proxy
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: sus-proxy
+    namespace: obsidian-proxy
   syncPolicy:
     automated: {}
     syncOptions:
