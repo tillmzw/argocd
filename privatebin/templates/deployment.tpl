@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: privatebin
-        image: privatebin/fs:stable@sha256:cff29c35063fa56f6d22ddc93a800b02e1f8541e19ebdc6abbd974c3d2c1ec8b
+        image: privatebin/fs:stable@sha256:db9ea6e81d110fcd24f56d59f2168d1754ef1f85e877d6ce81249003445397eb
         ports:
         - containerPort: 8080
         env:
