@@ -19,6 +19,10 @@ spec:
           ingress:
             domain: www.wir-feiern-mit-eu.ch
             cert_issuer: letsencrypt-prod
+        photoprism:
+          ingress:
+            domain: fotos.wir-feiern-mit-eu.ch
+            cert_issuer: letsencrypt-prod
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: ghost

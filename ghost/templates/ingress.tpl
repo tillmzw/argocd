@@ -36,10 +36,13 @@ spec:
               name: ghost
               port:
                 number: 80
+    - host: {{ .Values.photoprism.ingress.domain }}
+      http:
+        paths:
         - pathType: Prefix
-          path: "/fotos"
+          path: "/"
           backend:
             service:
-              name: photoprism
+              name: ghost
               port:
                 number: 80
