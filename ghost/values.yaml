@@ -25,3 +25,14 @@ database:
     requests:
       memory: 400Mi
       cpu: 100m
+photoprism:
+  storage:
+    className: linode-block-storage-retain
+    size: 15Gi
+  resources:
+    limits:
+      memory: 1000Mi
+      cpu: 1000m
+    requests:
+      memory: 400Mi
+      cpu: 100m

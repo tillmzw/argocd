@@ -36,3 +36,10 @@ spec:
               name: ghost
               port:
                 number: 80
+        - pathType: Prefix
+          path: "/fotos"
+          backend:
+            service:
+              name: photoprism
+              port:
+                number: 80
