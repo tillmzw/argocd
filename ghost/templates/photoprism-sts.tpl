@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: photoprism
   serviceName: photoprism
-  replicas: 1
+  replicas: {{ .Values.photoprism.replicas }}
   template:
     metadata:
       labels:

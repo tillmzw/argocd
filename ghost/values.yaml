@@ -26,6 +26,7 @@ database:
       memory: 400Mi
       cpu: 100m
 photoprism:
+  replicas: 1
   storage:
     className: linode-block-storage-retain
     size: 15Gi
