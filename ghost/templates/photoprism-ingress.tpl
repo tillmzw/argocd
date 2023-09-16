@@ -5,9 +5,11 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: {{ .Values.photoprism.ingress.cert_issuer }}
-    ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "512M"
     nginx.ingress.kubernetes.io/server-alias: {{ .Values.photoprism.ingress.domain }}
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      client_max_body_size 10mb;
 spec:
   tls:
     - hosts:
