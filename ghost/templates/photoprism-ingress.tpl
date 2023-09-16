@@ -8,8 +8,6 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "512M"
     nginx.ingress.kubernetes.io/server-alias: {{ .Values.photoprism.ingress.domain }}
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      client_max_body_size 10mb;
 spec:
   tls:
     - hosts:
