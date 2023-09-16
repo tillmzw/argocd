@@ -7,6 +7,7 @@ data:
   PHOTOPRISM_AUTH_MODE: password
   PHOTOPRISM_SITE_CAPTION: "R & T's Hochzeit"
   PHOTOPRISM_SITE_DESCRIPTION: 'Wir feierten mit euch, und hier sind die Fotos'
+  PHOTOPRISM_SITE_URL: 'https://fotos.wir-feiern-mit-eu.ch/'
   PHOTOPRISM_DISABLE_RESTART: "true"
   PHOTOPRISM_DISABLE_PLACES: "true"
   PHOTOPRISM_DISABLE_CLASSIFICATION: "true"
