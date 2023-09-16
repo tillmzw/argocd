@@ -4,11 +4,19 @@ metadata:
   name: photoprism-config
   namespace: {{ .Values.namespace }}
 data:
-  PHOTOPRISM_DEBUG: "true"
-  PHOTOPRISM_HTTP_HOST: "0.0.0.0"
-  PHOTOPRISM_HTTP_PORT: "2342"
   PHOTOPRISM_AUTH_MODE: password
-  PHOTOPRISM_SITE_URL: {{ .Values.photoprism.ingress.domain }}
-  PHOTOPRISM_SITE_CAPTION: "Wir feierten mit euch - und hier sind die Fotos!"
-  PHOTOPRISM_DATABASE_DRIVER: sqlite
-  PHOTOPRISM_DATABASE_DSN: /photoprism/storage/db.sqlite3
+  PHOTOPRISM_SITE_CAPTION: "R & T's Hochzeit"
+  PHOTOPRISM_SITE_DESCRIPTION: 'Wir feierten mit euch, und hier sind die Fotos'
+  PHOTOPRISM_DISABLE_RESTART: "true"
+  PHOTOPRISM_DISABLE_PLACES: "true"
+  PHOTOPRISM_DISABLE_CLASSIFICATION: "true"
+  PHOTOPRISM_DISABLE_SIPS: "true"
+  PHOTOPRISM_DISABLE_FFMPEG: "true"
+  PHOTOPRISM_DISABLE_EXIFTOOL: "true"
+  PHOTOPRISM_DISABLE_DARKTABLE: "true"
+  PHOTOPRISM_DISABLE_RAWTHERAPEE: "true"
+  PHOTOPRISM_DISABLE_IMAGEMAGICK: "true"
+  PHOTOPRISM_DISABLE_HEIFCONVERT: "true"
+  PHOTOPRISM_DISABLE_RSVGCONVERT: "true"
+  PHOTOPRISM_DISABLE_VECTORS: "true"
+  PHOTOPRISM_DISABLE_RAW: "true"
