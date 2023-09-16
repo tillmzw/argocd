@@ -35,8 +35,8 @@ photoprism:
     size: 15Gi
   resources:
     limits:
-      memory: 1000Mi
-      cpu: 1000m
+      memory: 1500Mi
+      cpu: 2000m
     requests:
-      memory: 400Mi
-      cpu: 100m
+      memory: 1000Mi
+      cpu: 500m
