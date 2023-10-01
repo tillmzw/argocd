@@ -8,7 +8,7 @@ metadata:
     cert-manager.io/cluster-issuer: {{ .Values.cert_issuer }}
     nginx.ingress.kubernetes.io/server-snippet: |
       location /{{ .Values.obsidian_path }} {
-        rewrite 301 https://tillmzw.github.io/sus;
+        return 301 https://tillmzw.github.io/sus;
       }
 spec:
   tls:
