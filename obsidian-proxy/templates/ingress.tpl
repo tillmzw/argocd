@@ -8,9 +8,7 @@ metadata:
     cert-manager.io/cluster-issuer: {{ .Values.cert_issuer }}
     nginx.ingress.kubernetes.io/server-snippet: |
       location /{{ .Values.obsidian_path }} {
-        proxy_pass https://publish.obsidian.md/serve?url={{ .Values.domain }}/{{ .Values.obsidian_path }};
-        proxy_set_header Host publish.obsidian.md;
-        proxy_ssl_server_name on;
+        rewrite 301 https://tillmzw.github.io/sus;
       }
 spec:
   tls:
