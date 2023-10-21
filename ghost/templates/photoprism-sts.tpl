@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: photoprism
-        image: photoprism/photoprism:latest@sha256:523ead1dd226a2f30c8fc333aea553a18681f20ee20167e003de1151d0b82edf
+        image: photoprism/photoprism:latest@sha256:edc512d1fe3d918a45cf5ecea5b433b8600fd9574cb40975ec266e151acb8e9a
         env:
         - name: PHOTOPRISM_ADMIN_USER
           valueFrom:
