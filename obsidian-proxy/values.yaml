@@ -1,4 +1,0 @@
-cert_issuer: letsencrypt-prod
-domain: pub.512.ch 
-namespace: pub 
-obsidian_path: schatten-ueber-stranfeste
