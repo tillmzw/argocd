@@ -15,11 +15,12 @@ spec:
     helm:
       values: |
         ghost:
-          replicas: 1
+          replicas: 0
           ingress:
             domain: www.wir-feiern-mit-eu.ch
             cert_issuer: letsencrypt-prod
         photoprism:
+          replicas: 0
           ingress:
             domain: fotos.wir-feiern-mit-eu.ch
             cert_issuer: letsencrypt-prod
