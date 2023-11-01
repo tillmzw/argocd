@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:14@sha256:8f7ae11760980811fd91845f89fcf6e01801b9b08f7d72a6796e1bee1e0098fb
+          image: postgres:14@sha256:34d097d41dda7c46723786349aa76abc33d26b782fcb32991b5e9b929fc00b3c
           imagePullPolicy: Always
           ports:
             - containerPort: 5432
