@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cilium
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: infrastructure
+  source:
+    repoURL: 'https://helm.cilium.io/'
+    targetRevision: 1.14.3
+    chart: cilium 
+    helm: 
+      values: |
+        ingressController:
+          enabled: true
+  destination:
+    server: {{ .Values.spec.destination.server }} 
+    namespace: infrastructure
+  syncPolicy:
+    automated:
+      selfHeal: true 
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
