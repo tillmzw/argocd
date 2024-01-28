@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vikunja/frontend:0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882
+        image: vikunja/frontend:0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
         ports:
         - containerPort: 80
         env:
