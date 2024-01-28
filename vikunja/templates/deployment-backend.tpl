@@ -18,7 +18,7 @@ spec:
         fsGroup: 1000
       containers:
       - name: backend
-        image: vikunja/api:0.21.0@sha256:e541ef5599d08f50a24e8de1fd8136f9d0a7ef514916fac6d6bf8ac6c7c16712
+        image: vikunja/api:0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
         ports:
         - containerPort: 3456
         env:
