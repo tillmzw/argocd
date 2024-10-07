@@ -1,9 +1,9 @@
 argo-cd:
   ingress:
-    domain: argo.512.ch
+    domain: argo.devoops.one
   server:
     config:
-      url: https://argo.512.ch
+      url: https://argo.devoops.one
     extraArgs:
       - --insecure
     resources:

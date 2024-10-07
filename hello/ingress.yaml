@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - hello.512.ch
+    - hello.devoops.one
     secretName: hello-tls
   rules:
-  - host: hello.512.ch
+  - host: hello.devoops.one
     http:
       paths:
       - path: /

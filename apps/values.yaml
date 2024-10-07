@@ -1,5 +1,5 @@
 spec:
-  domain: 512.ch
+  domain: devoops.one
   repo: https://github.com/tillmzw/argocd.git
   destination:
     server: https://kubernetes.default.svc

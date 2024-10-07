@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 512.ch
+  name: devoops.one
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   project: infrastructure
   source:
     repoURL: https://github.com/tillmzw/argocd.git
-    targetRevision: master
+    targetRevision: devoops
     path: apps
   destination:
     server: https://kubernetes.default.svc
