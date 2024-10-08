@@ -16,9 +16,9 @@ spec:
       values: |
         namespaceOverride: infrastructure
         alertManager:
-          enabled: false
+          enabled: true
         nodeExporter:
-          enabled: false
+          enabled: true 
           resources:
             limits:
               memory: 100Mi
@@ -27,7 +27,7 @@ spec:
               memory: 75Mi
               cpu: 25m
         grafana:
-          enabled: false
+          enabled: true
           adminPassword: "Yk9Pdnpkc3hTOG0xa014WFdRaVZVQmlqcEtFYjFOQTkK"
           sidecar:                              
             dashboards:
@@ -46,11 +46,11 @@ spec:
                 - grafana.devoops.one
                 secretName: grafana-tls
         nodeExporter:
-          enabled: false
+          enabled: true 
         prometheusOperator:
-          enabled: false
+          enabled: true
         prometheus:
-          enabled: false
+          enabled: true
           prometheusSpec:
             storageSpec:
               volumeClaimTemplate:
