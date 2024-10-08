@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
-  namespace: hello
+  namespace: hello 
 spec:
-  replicas: 10
+  replicas: 0
   revisionHistoryLimit: 0
   selector:
     matchLabels:
@@ -15,11 +15,11 @@ spec:
         app: hello
     spec:
       containers:
-        - name: hello-ingress
-          image: nginxdemos/hello
-          ports:
-            - containerPort: 80
-          resources:
-            limits:
-              cpu: 1m
-              memory: 10Mi
+      - name: hello-ingress
+        image: nginxdemos/hello
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 1m
+            memory: 10Mi
