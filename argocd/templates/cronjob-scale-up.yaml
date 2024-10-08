@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scale-up-argocd
+  namespace: argocd
+spec:
+  concurrencyPolicy: Forbid
+  schedule: '0 0 * * 0'
+  jobTemplate:
+    spec:
+      backoffLimit: 2 
+      activeDeadlineSeconds: 600 
+      template:
+        spec:
+          serviceAccountName: scale-argocd
+          restartPolicy: Never
+          containers:
+            - name: kubectl
+              image: bitnami/kubectl
+              command:
+                - 'kubectl'
+                - 'scale'
+                - 'deployment,statefulset'
+                - '-n argocd'
+                - '-l app.kubernetes.io/part-of=argocd'
+                - '--replicas=1'
