@@ -1,5 +1,5 @@
 apiVersion: networking.k8s.io/v1
-kind: ClusterIssuer
+kind: Ingress
 metadata:
   name: argocd-server-grpc-ingress
   namespace: argocd
