@@ -3,7 +3,7 @@ domain: vikunja
 namespace: default
 backend:
   storage:
-    className: linode-block-storage-retain
+    className: do-block-storage-retain
     size: 5Gi
   resources:
     requests:

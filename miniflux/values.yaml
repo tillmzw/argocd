@@ -11,7 +11,7 @@ miniflux:
       cpu: 15m
 database:
   storage:
-    className: default
+    className: do-block-storage-retain
     size: 5Gi
   resources:
     limits:
